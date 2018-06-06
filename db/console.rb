@@ -2,6 +2,8 @@ require ('pry')
 require_relative('../models/album')
 require_relative('../models/artist')
 
+Artist.delete_all()
+
 artist1 = Artist.new({'name'=>"The Beatles"})
 artist2 = Artist.new({'name'=>"Rolling Stones"})
 artist1.save()
