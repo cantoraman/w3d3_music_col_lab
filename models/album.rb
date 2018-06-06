@@ -31,7 +31,9 @@ end
 
 def self.list_all
   sql = "SELECT * FROM albums"
-  SqlRunner.run(sql)
+  results_pg=SqlRunner.run(sql)
+  results_array = results_pg.map{|result| Album.new(result)}
+  return results_array
 end
 
 

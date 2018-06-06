@@ -26,6 +26,15 @@ artist2.save()
      artist_3.save()
   end
 
+  def create_album(title, genre)
+    Artist.list_all
+    p "Enter id of the artist"
+    artist_id=gets.chomp.to_i
+
+    album2= Album.new({'title' => title,
+    'genre' => genre, 'artist_id' => artist_id})
+    album2.save()
+  end
 
 
 
