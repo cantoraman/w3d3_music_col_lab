@@ -29,8 +29,10 @@ def self.delete_all
   SqlRunner.run(sql)
 end
 
-
-
+def self.list_all
+  sql = "SELECT * FROM albums"
+  SqlRunner.run(sql)
+end
 
 
 
