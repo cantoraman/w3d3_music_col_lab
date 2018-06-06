@@ -36,8 +36,20 @@ def self.list_all
   return results_array
 end
 
+def self.list_all_by_artist(name)
+  artist_id=Album.artist_name_to_id(name)
+  sql = "SELECT * FROM albums WHERE artist_id = ($1)"
+  values = [artist_id]
+  results_pg=SqlRunner.run(sql, values)
+  results_array = results_pg.map{|result| Album.new(result)}
+end
 
-
+def self.artist_name_to_id(name)
+  sql = "SELECT * FROM artists WHERE name = ($1)"
+  values = [name]
+  results_pg=SqlRunner.run(sql, values)
+  return results_pg[0]['id'].to_i
+end
 
 end
 
